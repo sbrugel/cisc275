@@ -5,8 +5,8 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    if (numbers.length == 1) return [numbers[0], numbers[0]];
-    else if (numbers.length == 0) return [];
+    if (numbers.length === 1) return [numbers[0], numbers[0]];
+    else if (numbers.length === 0) return [];
     else return [numbers[0], numbers[numbers.length - 1]];
 }
 
@@ -74,7 +74,14 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    if (colors.length === 0) return true;
+
+    return (
+        colors.filter(
+            (color: string): boolean =>
+                color !== "red" && color !== "green" && color !== "blue"
+        ).length === 0
+    );
 }
 
 /**
