@@ -108,5 +108,31 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    let sum = 0;
+    let arrBeforeFirstNegative = [...values];
+
+    const firstNegativeIndex = values.findIndex(
+        (value: number): boolean => value < 0
+    );
+
+    if (firstNegativeIndex !== -1) {
+        // there is a negative in the array
+        arrBeforeFirstNegative = arrBeforeFirstNegative.slice(
+            0,
+            firstNegativeIndex
+        );
+    }
+
+    sum = arrBeforeFirstNegative.reduce(
+        (total: number, num: number) => total + num,
+        0
+    );
+
+    const newValues = [...values]; // have to create a new array for it to work correctly
+
+    if (firstNegativeIndex !== -1)
+        newValues.splice(firstNegativeIndex + 1, 0, sum);
+    else newValues.splice(newValues.length, 0, sum);
+
+    return newValues;
 }
