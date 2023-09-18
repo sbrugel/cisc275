@@ -3,7 +3,8 @@ import {
     fahrenheitToCelius,
     shout,
     isQuestion,
-    convertYesNo
+    convertYesNo,
+    hasNoGreetings
 } from "./functions";
 
 describe("Testing the basic functions", () => {
@@ -55,5 +56,14 @@ describe("Testing the basic functions", () => {
         expect(convertYesNo("Nope")).toBe(null);
         expect(convertYesNo("Yesterday")).toBe(null);
         expect(convertYesNo("Maybe")).toBe(null);
+    });
+
+    test("Testing hasNoGreetings", () => {
+        expect(hasNoGreetings("")).toBe(true);
+        expect(hasNoGreetings("my name is Simon")).toBe(true);
+        expect(hasNoGreetings("HELLO")).toBe(false);
+        expect(hasNoGreetings("Greetings my friend")).toBe(false);
+        expect(hasNoGreetings("say hi to my friend")).toBe(false);
+        expect(hasNoGreetings("uphigh")).toBe(true);
     });
 });

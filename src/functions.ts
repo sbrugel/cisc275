@@ -51,3 +51,21 @@ export function convertYesNo(word: string): boolean | null {
         return null;
     else return word.toLowerCase() === "yes";
 }
+
+// 09/11/23 - IN CLASS ACTIVITY FOR TEST DRIVEN DEV
+/**
+ * Returns true if the phrase passed in does not have "hello", "hi" or "greetings"
+ * @param phrase The phrase to test
+ */
+export function hasNoGreetings(phrase: string): boolean {
+    return (
+        phrase
+            .split(" ")
+            .filter(
+                (word: string): boolean =>
+                    word.toLowerCase() === "hello" ||
+                    word.toLowerCase() === "hi" ||
+                    word.toLowerCase() === "greetings"
+            ).length === 0
+    );
+}
