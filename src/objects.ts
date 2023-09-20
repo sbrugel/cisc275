@@ -80,7 +80,11 @@ export function toMarkdown(question: Question): string {
     let ret_str = `# ${question.name}\n${question.body}`;
 
     if (question.type === "multiple_choice_question") {
-        ret_str += "\n" + question.options.map((opt) => `- ${opt}`).join("\n");
+        ret_str +=
+            "\n" +
+            question.options
+                .map((opt: string): string => `- ${opt}`)
+                .join("\n");
     }
     return ret_str;
 }
