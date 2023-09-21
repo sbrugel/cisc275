@@ -207,7 +207,27 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    const newQuestions = questions.map((q: Question): Question => ({ ...q }));
+    const questionToChange: Question = newQuestions.filter(
+        (q: Question): boolean => q.id === targetId
+    )[0];
+    if (targetOptionIndex === -1) {
+        questionToChange.options = [...questionToChange.options, newOption];
+    } else {
+        const optionsBeforeIndex = questionToChange.options.slice(
+            0,
+            targetOptionIndex
+        );
+        const optionsAfterIndex = questionToChange.options.slice(
+            targetOptionIndex + 1
+        );
+        questionToChange.options = [
+            ...optionsBeforeIndex,
+            newOption,
+            ...optionsAfterIndex
+        ];
+    }
+    return newQuestions;
 }
 
 /***
