@@ -8,8 +8,8 @@ export function CheckAnswer({
 }): JSX.Element {
     const [answer, setAnswer] = useState<string>("");
 
-    const updateAnswer = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setAnswer(e.target.value);
+    const updateAnswer = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setAnswer(event.target.value);
     };
 
     return (

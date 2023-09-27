@@ -6,10 +6,10 @@ export function GiveAttempts(): JSX.Element {
     const [attemptsRequested, setAttemptsRequested] = useState<number>(0);
 
     const updateAttemptsRequested = (
-        e: React.ChangeEvent<HTMLInputElement>
+        event: React.ChangeEvent<HTMLInputElement>
     ) => {
-        if (!isNaN(parseInt(e.target.value)))
-            setAttemptsRequested(parseInt(e.target.value));
+        if (!isNaN(parseInt(event.target.value)))
+            setAttemptsRequested(parseInt(event.target.value));
     };
 
     return (

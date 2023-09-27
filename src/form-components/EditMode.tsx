@@ -10,12 +10,12 @@ export function EditMode(): JSX.Element {
         setName(e.target.value);
     };
 
-    const updateIsStudent = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsStudent(e.target.checked);
+    const updateIsStudent = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setIsStudent(event.target.checked);
     };
 
-    const updateEditMode = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEditMode(e.target.checked);
+    const updateEditMode = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEditMode(event.target.checked);
     };
 
     return (

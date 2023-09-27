@@ -14,8 +14,8 @@ export function ChangeColor(): JSX.Element {
     ];
     const [chosenColor, setChosenColor] = useState<string>("red");
 
-    const updateChosenColor = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setChosenColor(e.target.value);
+    const updateChosenColor = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChosenColor(event.target.value);
     };
 
     return (
